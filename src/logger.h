@@ -4,6 +4,15 @@
 // Opaque pointer to hide implementation details
 typedef struct logger_t * logger_t;
 
+// Supported output formats
+typedef enum {
+    TXT,
+    CSV,
+    TSV,
+    XML,
+    JSON
+} format_t;
+
 // Log levels
 typedef enum {
     INFO,
@@ -14,7 +23,7 @@ typedef enum {
 } level_t;
 
 // Lifetime functions
-logger_t open_logger(const char *);
+logger_t open_logger(const char *, format_t);
 void close_logger(logger_t);
 
 // Log functions
